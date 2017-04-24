@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Página Estado</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p>
+                <p:commandLink value="Retornar página principal" action="principal"></p:commandLink>
+            </p>
+            <p:panel header="Novo Estado" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="10">
+                    
+                    <h:outputLabel value="Nome: "></h:outputLabel>
+                    <p:inputText value="#{estadoMB.nome}"></p:inputText>
+                    
+                    <p:commandButton ajax="false" value="Criar" action="#{estadoMB.criar()}"></p:commandButton>
+                </h:panelGrid>
+            </p:panel>
+
+            <p:panel header="Estados Cadastrados">
+                <p:dataTable var="estado" value="#{estadoMB.consultar()}">
+                    
+                    <p:column headerText="Id">
+                        <h:outputText value="#{estado.id}" />
+                    </p:column>
+                    
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{estado.nome}" />
+                    </p:column>
+                    
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+
