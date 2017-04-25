@@ -1,26 +1,33 @@
 package com.webapp.entidade;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-public class Estado implements Serializable {
+public class Pedido implements Serializable {
     
     @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    private double vrTotal;
     
-    public Estado() {
+    @Temporal (TemporalType.DATE)
+    private Date dataPedido;
+
+    public Pedido() {
         super();
     }
 
-    public Estado(String nome) {
+    public Pedido(double vrTotal, Date dataPedido) {
         this();
-        this.setNome(nome);
+        this.vrTotal = vrTotal;
+        this.dataPedido = dataPedido;
     }
 
     public Long getId() {
@@ -31,18 +38,26 @@ public class Estado implements Serializable {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public double getVrTotal() {
+        return vrTotal;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setVrTotal(double vrTotal) {
+        this.vrTotal = vrTotal;
+    }
+
+    public Date getDataPedido() {
+        return dataPedido;
+    }
+
+    public void setDataPedido(Date dataPedido) {
+        this.dataPedido = dataPedido;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + Objects.hashCode(this.id);
+        int hash = 3;
+        hash = 71 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -57,7 +72,7 @@ public class Estado implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Estado other = (Estado) obj;
+        final Pedido other = (Pedido) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -66,7 +81,7 @@ public class Estado implements Serializable {
 
     @Override
     public String toString() {
-        return "Estado{" + "id=" + id + ", nome=" + nome + '}';
+        return "Pedido{" + "id=" + id + ", vrTotal=" + vrTotal + ", dataPedido=" + dataPedido + '}';
     }
     
     
