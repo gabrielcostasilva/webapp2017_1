@@ -2,11 +2,15 @@ package com.webapp.entidade;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,6 +23,32 @@ public class Pedido implements Serializable {
     
     @Temporal (TemporalType.DATE)
     private Date dataPedido;
+    
+    @ManyToOne (fetch = FetchType.EAGER)
+    private Consumidor consumidor;
+    
+    @ElementCollection
+    private List<ItemPedido> itemPedido;
+
+    public List<ItemPedido> getItemPedido() {
+        return itemPedido;
+    }
+
+    public void setItemPedido(List<ItemPedido> itemPedido) {
+        this.itemPedido = itemPedido;
+    }
+    
+    
+
+    public Consumidor getConsumidor() {
+        return consumidor;
+    }
+
+    public void setConsumidor(Consumidor consumidor) {
+        this.consumidor = consumidor;
+    }
+    
+    
 
     public Pedido() {
         super();
