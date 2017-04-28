@@ -19,6 +19,13 @@
     
     <navigation-rule>
         <navigation-case>
+            <from-outcome>entidadeNaoExiste</from-outcome>
+            <to-view-id>/entidadeNaoExiste.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
             <from-outcome>principal</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
@@ -42,6 +49,10 @@
             <from-outcome>estado</from-outcome>
             <to-view-id>/estado.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>cidade</from-outcome>
+            <to-view-id>/cidade.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -49,6 +60,14 @@
         <navigation-case>
             <from-outcome>criado</from-outcome>
             <to-view-id>/estado.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+        <navigation-rule>
+        <from-view-id>/cidade.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>criado</from-outcome>
+            <to-view-id>/cidade.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
