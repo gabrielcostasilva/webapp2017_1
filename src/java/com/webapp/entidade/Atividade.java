@@ -3,7 +3,6 @@ package com.webapp.entidade;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
