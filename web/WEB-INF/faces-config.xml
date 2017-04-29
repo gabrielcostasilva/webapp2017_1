@@ -53,6 +53,15 @@
             <from-outcome>cidade</from-outcome>
             <to-view-id>/cidade.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>atividade</from-outcome>
+            <to-view-id>/atividade.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>consumidor</from-outcome>
+            <to-view-id>/consumidor.xhtml</to-view-id>
+        </navigation-case>
+
     </navigation-rule>
     
     <navigation-rule>
@@ -76,6 +85,14 @@
         <navigation-case>
             <from-outcome>criado</from-outcome>
             <to-view-id>/atividade.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+        <navigation-rule>
+        <from-view-id>/consumidor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>criado</from-outcome>
+            <to-view-id>/consumidor.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

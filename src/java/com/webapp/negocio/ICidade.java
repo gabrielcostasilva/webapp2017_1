@@ -13,4 +13,5 @@ public interface ICidade {
     boolean alterar(Long id, String novoNome, Long idNovoEstado);
     boolean deletar(Long id);
     List<Cidade> consultar();
+    public List<Cidade> consultar(Long estadoId);
 }

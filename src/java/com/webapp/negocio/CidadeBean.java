@@ -56,4 +56,8 @@ public class CidadeBean implements ICidade {
         return em.createQuery("SELECT c FROM Cidade c", Cidade.class).getResultList();
     }
 
+    @Override
+    public List<Cidade> consultar(Long estadoId) {
+        return em.createQuery("SELECT c FROM Cidade c WHERE c.estado.id = " + estadoId, Cidade.class).getResultList();
+    }
 }

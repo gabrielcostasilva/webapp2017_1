@@ -19,6 +19,24 @@ public class Consumidor extends Pessoa implements Serializable {
     public Consumidor() {
         super();
     }
+
+    public List<String> getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(List<String> telefone) {
+        this.telefone = telefone;
+    }
+
+    public Status getStatusConsumidor() {
+        return statusConsumidor;
+    }
+
+    public void setStatusConsumidor(Status statusConsumidor) {
+        this.statusConsumidor = statusConsumidor;
+    }
+    
+    
     
     
     

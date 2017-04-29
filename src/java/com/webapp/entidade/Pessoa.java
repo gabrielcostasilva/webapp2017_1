@@ -4,7 +4,9 @@ import java.util.Objects;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 
 @MappedSuperclass
 public abstract class Pessoa {
@@ -12,7 +14,18 @@ public abstract class Pessoa {
     @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
     protected Long id;
     protected String nome;
+    
+    @ManyToOne
+    protected Cidade cidade;
 
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+    
     public Long getId() {
         return id;
     }
