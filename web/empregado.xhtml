@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Página Empregado</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <p>
+                <p:commandLink value="Retornar página principal" action="principal"></p:commandLink>
+            </p>
+        </h:form>
+
+        <h:form>
+            <p:panel header="Novo Empregado" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="10">
+
+                    <p:outputLabel value="Estado: " ></p:outputLabel>
+                    <p:selectOneMenu value="#{empregadoMB.estadoId}" style="width:150px">
+                        <p:ajax listener="#{empregadoMB.onMudaEstado()}" update="cidadeList" />
+                        <f:selectItems value="#{empregadoMB.getEstados()}" var = "estado" itemLabel="#{estado.nome}" itemValue="#{estado.id}" ></f:selectItems>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Cidade: " ></p:outputLabel>
+                    <p:selectOneMenu id="cidadeList" value="#{empregadoMB.cidadeId}" style="width:150px">
+                        <f:selectItems value="#{empregadoMB.cidades}" var = "cidade" itemLabel="#{cidade.nome}" itemValue="#{cidade.id}" ></f:selectItems>
+                    </p:selectOneMenu>
+
+
+                    <h:outputLabel value="Nome: "></h:outputLabel>
+                    <p:inputText value="#{empregadoMB.nome}"></p:inputText>
+
+                    <h:outputLabel value="Salário: "></h:outputLabel>
+                    <p:inputText value="#{empregadoMB.salario}"></p:inputText>
+
+                    <p:outputLabel value="Atividades:" />
+                    <p:selectOneListbox value="#{empregadoMB.atividadeId}">
+                        <f:selectItems value="#{empregadoMB.getAtividades()}" var = "atividade" itemLabel="#{atividade.descricao}" itemValue="#{atividade.id}" ></f:selectItems>
+                    </p:selectOneListbox>
+                    
+                    <p:commandButton value="Adicionar Atividade" actionListener="#{empregadoMB.adicionarAtividade()}"></p:commandButton>
+                    <h:inputHidden></h:inputHidden>
+
+                    <p:commandButton ajax="false" value="Criar" action="#{empregadoMB.criar()}"></p:commandButton>
+                </h:panelGrid>
+            </p:panel>
+
+            <p:panel header="Empregados Cadastrados">
+                <p:dataTable var="empregado" value="#{empregadoMB.consultar()}">
+
+                    <p:column headerText="Id">
+                        <h:outputText value="#{empregado.id}" />
+                    </p:column>
+
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{empregado.nome}" />
+                    </p:column>
+
+                    <p:column headerText="Salário">
+                        <h:outputText value="#{empregado.salario}" />
+                    </p:column>
+
+                    <p:column headerText="Cidade">
+                        <h:outputText value="#{empregado.cidade.nome}" />
+                    </p:column>
+
+                    <p:column headerText="Atividades">
+                        <h:outputText value="#{empregado.atividades}" />
+                    </p:column>
+
+                </p:dataTable>
+            </p:panel>
+
+
+        </h:form>         
+
+    </h:body>
+</html>
+

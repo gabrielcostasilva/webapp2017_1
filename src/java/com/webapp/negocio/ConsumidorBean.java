@@ -2,6 +2,7 @@ package com.webapp.negocio;
 
 import com.webapp.entidade.Cidade;
 import com.webapp.entidade.Consumidor;
+import com.webapp.entidade.Status;
 import com.webapp.excecao.EntidadeJaExiste;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,8 @@ public class ConsumidorBean implements IConsumidor {
     @Override
     public void criar(String nome, Long cidadeId) {
         Consumidor consumidor = new Consumidor();
+        consumidor.setStatusConsumidor(Status.ATIVO);
+        
         consumidor.setNome(nome);
 
         Optional<Cidade> cidade = cidadeBean.consultar().stream().filter(e -> e.getId().equals(cidadeId)).findFirst();

@@ -62,6 +62,12 @@
             <to-view-id>/consumidor.xhtml</to-view-id>
         </navigation-case>
 
+        <navigation-case>
+            <from-outcome>empregado</from-outcome>
+            <to-view-id>/empregado.xhtml</to-view-id>
+        </navigation-case>
+
+
     </navigation-rule>
     
     <navigation-rule>
@@ -88,11 +94,20 @@
         </navigation-case>
     </navigation-rule>
     
-        <navigation-rule>
+    <navigation-rule>
         <from-view-id>/consumidor.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>criado</from-outcome>
             <to-view-id>/consumidor.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/empregado.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>criado</from-outcome>
+            <to-view-id>/empregado.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
 </faces-config>
