@@ -8,30 +8,35 @@
     </h:head>
     <h:body>
         <h:form>
+            <p>
+                <p:commandLink value="Retornar página principal" action="principal"></p:commandLink>
+            </p>
+        </h:form>
+        <h:form>
             <p:panel header="Novo Produto" style="margin-bottom:20px">
                 <h:panelGrid columns="2" cellpadding="10">
-                    
+
                     <h:outputLabel value="Nome: "></h:outputLabel>
                     <p:inputText value="#{produtoMB.nome}"></p:inputText>
 
                     <h:outputLabel value="Preço: "></h:outputLabel>
                     <p:inputText value="#{produtoMB.preco}"></p:inputText>
-                    
+
                     <p:commandButton ajax="false" value="Criar" action="#{produtoMB.criar()}"></p:commandButton>
                 </h:panelGrid>
             </p:panel>
 
             <p:panel header="Produtos Cadastrados">
                 <p:dataTable var="produto" value="#{produtoMB.consultar()}">
-                    
+
                     <p:column headerText="Id">
                         <h:outputText value="#{produto.id}" />
                     </p:column>
-                    
+
                     <p:column headerText="Nome">
                         <h:outputText value="#{produto.nome}" />
                     </p:column>
-                    
+
                     <p:column headerText="Preço">
                         <h:outputText value="#{produto.preco}" />
                     </p:column>

@@ -29,6 +29,25 @@ public class ConsumidorMB {
     private IConsumidor consumidorBean;
 
     private String nome;
+    private String telefone;
+
+    private List<String> telefones;
+
+    public List<String> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<String> telefones) {
+        this.telefones = telefones;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
     public List<Estado> getEstados() {
         return estadoBean.consultar();
@@ -78,14 +97,24 @@ public class ConsumidorMB {
     public String criar() {
 
         try {
-            consumidorBean.criar(this.getNome(), this.getCidadeId());
+            consumidorBean.criar(this.getNome(), this.getCidadeId(), this.getTelefones());
             return "criado";
-            
+
         } catch (Exception e) {
             System.out.println(e);
             return "erro";
         }
 
+    }
+
+    public void adicionarTelefone() {
+        
+        if (telefones == null)
+            telefones = new ArrayList<>();
+        
+        telefones.add(telefone);
+        System.out.println(telefone);
+        System.out.println(telefones);
     }
 
     public List<Consumidor> consultar() {

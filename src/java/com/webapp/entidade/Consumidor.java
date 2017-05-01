@@ -6,11 +6,12 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 
 @Entity
 public class Consumidor extends Pessoa implements Serializable {
     
-    @ElementCollection
+    @ElementCollection (fetch = FetchType.EAGER)
     private List<String> telefone;
     
     @Enumerated (EnumType.STRING)

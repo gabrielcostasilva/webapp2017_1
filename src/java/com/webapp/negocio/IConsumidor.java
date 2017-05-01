@@ -13,6 +13,6 @@ public interface IConsumidor {
     boolean deletar (Long id);
     List<Consumidor> consultar();
 
-    public void criar(String nome, Long cidadeId);
+    public void criar(String nome, Long cidadeId, List<String> telefones);
     
 }

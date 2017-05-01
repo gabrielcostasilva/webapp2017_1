@@ -30,9 +30,14 @@
                         <f:selectItems value="#{consumidorMB.cidades}" var = "cidade" itemLabel="#{cidade.nome}" itemValue="#{cidade.id}" ></f:selectItems>
                     </p:selectOneMenu>
 
-
                     <h:outputLabel value="Nome: "></h:outputLabel>
                     <p:inputText value="#{consumidorMB.nome}"></p:inputText>
+
+                    <p:outputLabel value="Telefone: " />
+                    <p:inputText value="#{consumidorMB.telefone}"></p:inputText>
+
+                    <p:commandButton value="Adicionar Telefone" actionListener="#{consumidorMB.adicionarTelefone()}"></p:commandButton>
+                    <h:inputHidden></h:inputHidden>
 
                     <p:commandButton ajax="false" value="Criar" action="#{consumidorMB.criar()}"></p:commandButton>
                 </h:panelGrid>
@@ -48,7 +53,7 @@
                     <p:column headerText="Nome">
                         <h:outputText value="#{consumidor.nome}" />
                     </p:column>
-                    
+
                     <p:column headerText="Cidade">
                         <h:outputText value="#{consumidor.cidade.nome}" />
                     </p:column>
